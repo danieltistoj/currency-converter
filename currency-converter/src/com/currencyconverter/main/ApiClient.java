@@ -25,10 +25,10 @@ public class ApiClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        HttpClient client = HttpClient.newHttpClient();
         
+        HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.exchangerate-api.com/v4/latest/USD"))
+                .uri(URI.create("https://api.exchangerate-api.com/v4/latest/GTQ"))
                 .build();
         
         try {
@@ -47,17 +47,12 @@ public class ApiClient {
                     hashmap.put(key, value);
                 }
                 
-            hashmap.forEach((key,value)->System.out.println(key+" : "+value));
+            hashmap.forEach((key,value)->System.out.println(key));
            
             System.out.println(hashmap.get("USD"));
             } catch (JSONException ex) {
                 System.out.println("Error");
             }
-           
-            System.out.println("Status code: " + statusCode);
-            System.out.println("Response body: " + responseBody);
-            
-
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
