@@ -23,7 +23,6 @@ public enum Country {
     SUDAFRICA("Sudáfrica", "ZAR"),
     TUNEZ("Túnez", "TND"),
     SANTO_TOME_PRINCIPE("Santo Tomé y Príncipe", "STN"),
-    SIERRA_LEONA("Sierra Leona", "SLL"),
     BAHAMAS("Bahamas", "BSD"),
     SUDAN("Sudán", "SDG"),
     IRAK("Irak", "IQD"),
@@ -58,7 +57,6 @@ public enum Country {
     TAILANDIA("Tailandia", "THB"),
     UZBEKISTAN("Uzbekistán", "UZS"),
     FRANCO_CFP("Franco CFP", "XPF"),
-    MAURITANIA("Mauritania", "MRO"),
     BANGLADESH("Bangladesh", "BDT"),
     LIBIA("Libia", "LYD"),
     BERMUDAS("Bermudas", "BMD"),
@@ -112,7 +110,6 @@ public enum Country {
     HONG_KONG("Hong Kong", "HKD"),
     RUANDA("Ruanda", "RWF"),
     EURO("Euro", "EUR"),
-    ISLAS_FEROE("Islas Feroe", "DKK"),
     LESOTO("Lesoto", "LSL"),
     DINAMARCA("Dinamarca", "DKK"),
     CANADA("Canadá", "CAD"),
@@ -122,7 +119,7 @@ public enum Country {
     MAURICIO("Mauricio", "MUR"),
     NORUEGA("Noruega", "NOK"),
     SIRIA("Siria", "SYP"),
-    ISLA_DE_MAN("Isla de Man", "GBP"),
+    REINO_UNIDO("Reino Unido", "GBP"),
     ZIMBABUE("Zimbabue", "ZWL"),
     GIBRALTAR("Gibraltar", "GIP"),
     RUMANIA("Rumania", "RON"),
@@ -151,7 +148,6 @@ public enum Country {
     MONGOLIA("Mongolia", "MNT"),
     ANGOLA("Angola", "AOA"),
     POLONIA("Polonia", "PLN"),
-    REINO_UNIDO("Reino Unido", "GBP"),
     ISLAS_SALOMON("Islas Salomón", "SBD"),
     BIELORRUSIA("Bielorrusia", "BYN"),
     HUNGRIA("Hungría", "HUF"),
@@ -170,8 +166,14 @@ public enum Country {
     NUEVA_ZELANDA("Nueva Zelanda", "NZD"),
     SAMOA("Samoa", "WST"),
     TURKMENISTAN("Turkmenistán", "TMT"),
-    BRASIL("Brasil", "BRL");
-    ;
+    BRASIL("Brasil", "BRL"),
+    SIERRA_LEONA("Sierra Leona","SLE"),
+    GUNIEA("Guine", "GNF"),
+    MAURITANIA("Mauritania", "MRU"),
+    ISLAS_FEROE("Islas Feroe", "FOK"),
+    ISLA_DE_MAN("Isla de Man", "KID"),
+    ISLAS_DEL_HOMBRE("Isla del hombre", "IMP");
+    
     
     private final String countryName;
     private final String currencyCode;

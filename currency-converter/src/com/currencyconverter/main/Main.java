@@ -19,8 +19,8 @@ public class Main {
      */
     public static void main(String[] args) {
         ApiClient apiClient = new ApiClient();
-        ArrayList<Currency> lista =  apiClient.callApi("USD");
-        
+        ArrayList<Currency> lista =  apiClient.callApi("GTQ");
+        System.out.println(" ");
         lista.sort((Currency c1,Currency c2)-> 
                 c1.getKey().compareTo(c2.getKey())
         );

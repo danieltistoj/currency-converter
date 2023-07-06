@@ -69,7 +69,11 @@ public class ApiClient {
                             -> {
                         Country country = this.getCountryByCurrencyCode(currency.getKey());
                         if (country != null) {
+                            
                             currency.setCountry(country.getCountryName());
+                        }else{
+                            //System.out.println("HoLA");
+                            System.out.println(currency.getKey());
                         }
                     });
 
