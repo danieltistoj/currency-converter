@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import com.currencyconverter.Class.ApiClient;
 import com.currencyconverter.Class.Currency;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 /**
  *
  * @author Usuario
@@ -17,18 +21,53 @@ import com.currencyconverter.Class.Currency;
 public class MainInterface extends javax.swing.JFrame {
 
     private ArrayList<Currency>list;
-    
+    private Point initialClick;
+
     public MainInterface() {
+        /**
+         * 
+         */
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         setTitle("Conversor de moneda y temperatura");
         setResizable(false);
         labelDolar.setIcon(new  ImageIcon("src/com/currencyconverter/img/icon-dolar2.png"));
-        
+        /**
+         * se agrega un MouseListener para detectar el clic inicial en la ventana y 
+         * un MouseMotionListener para realizar el arrastre de la ventana.
+         */
+         // Add a MouseListener to handle window dragging
+        addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                initialClick = e.getPoint();
+                getComponentAt(initialClick);
+            }
+        });
+
+        //Add a MouseMotionListener to move the window
+        addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent e) {
+                // Get current cursor position
+                int thisX = getLocation().x;
+                int thisY = getLocation().y;
+
+                // Calculate the new position of the window
+                int xMoved = thisX + (e.getX() - initialClick.x);
+                int yMoved = thisY + (e.getY() - initialClick.y);
+
+                // Move the window to the new position
+                setLocation(xMoved, yMoved);
+            }
+        });
+        /**
+         * access the api, download the nomenclatures and change and upload the 
+         * countries to the combobox
+         */
         ApiClient apiClient = new ApiClient();
         System.out.println(" ");
         list = apiClient.callApi("GTQ");
+        //sorts the list of countries in alphabetical order
         list.sort((Currency c1, Currency c2)->
                 c1.getKey().compareTo(c2.getKey())
         );
@@ -36,6 +75,9 @@ public class MainInterface extends javax.swing.JFrame {
         
       
     }
+    /**
+     * function that loads the countries to the combobox
+     */
     private void setComboboxElements(){
         list.forEach((currency) -> {
             if (currency.getCountry() != null) {
@@ -53,8 +95,8 @@ public class MainInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        panelMain = new javax.swing.JPanel();
+        panelLeft = new javax.swing.JPanel();
         buttonCurrency = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         buttonTemperature = new javax.swing.JPanel();
@@ -73,12 +115,18 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         panel_temperature = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        panelTop = new javax.swing.JPanel();
+        buttonMinimize = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        buttonClose = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
+        panelMain.setLayout(new java.awt.BorderLayout());
 
-        jPanel3.setBackground(new java.awt.Color(26, 47, 75));
+        panelLeft.setBackground(new java.awt.Color(26, 47, 75));
 
         buttonCurrency.setBackground(new java.awt.Color(26, 47, 75));
         buttonCurrency.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -87,10 +135,10 @@ public class MainInterface extends javax.swing.JFrame {
                 buttonCurrencyMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                buttonCurrencyMouseEntered(evt);
+                buttonCurrencyTemperatureMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                buttonCurrencyMouseExited(evt);
+                buttonCurrencyTemperatureMouseExited(evt);
             }
         });
 
@@ -120,10 +168,10 @@ public class MainInterface extends javax.swing.JFrame {
                 buttonCurrencyMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                buttonCurrencyMouseEntered(evt);
+                buttonCurrencyTemperatureMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                buttonCurrencyMouseExited(evt);
+                buttonCurrencyTemperatureMouseExited(evt);
             }
         });
 
@@ -146,24 +194,24 @@ public class MainInterface extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelLeftLayout = new javax.swing.GroupLayout(panelLeft);
+        panelLeft.setLayout(panelLeftLayout);
+        panelLeftLayout.setHorizontalGroup(
+            panelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(buttonCurrency, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+        panelLeftLayout.setVerticalGroup(
+            panelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLeftLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addComponent(buttonCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(buttonTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
+        panelMain.add(panelLeft, java.awt.BorderLayout.LINE_START);
 
         panelCenter.setLayout(new java.awt.CardLayout());
 
@@ -260,19 +308,18 @@ public class MainInterface extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonCurrencyGTQ, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         panel_currencyLayout.setVerticalGroup(
             panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_currencyLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
                 .addGroup(panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_currencyLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(9, 9, 9)
                         .addComponent(labelDolar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel_currencyLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(51, 51, 51)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addGroup(panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -288,7 +335,7 @@ public class MainInterface extends javax.swing.JFrame {
                 .addGroup(panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonGTQCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonCurrencyGTQ, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         panelCenter.add(panel_currency, "card2");
@@ -305,29 +352,114 @@ public class MainInterface extends javax.swing.JFrame {
             .addGroup(panel_temperatureLayout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         panel_temperatureLayout.setVerticalGroup(
             panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_temperatureLayout.createSequentialGroup()
                 .addGap(133, 133, 133)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         panelCenter.add(panel_temperature, "card3");
 
-        jPanel1.add(panelCenter, java.awt.BorderLayout.CENTER);
+        panelMain.add(panelCenter, java.awt.BorderLayout.CENTER);
+
+        panelTop.setBackground(new java.awt.Color(26, 47, 75));
+
+        buttonMinimize.setBackground(new java.awt.Color(26, 47, 75));
+        buttonMinimize.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonMinimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonMinimizeCloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonMinimizeCloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonMinimizeCloseMouseExited(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(47, 136, 134));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("—");
+
+        javax.swing.GroupLayout buttonMinimizeLayout = new javax.swing.GroupLayout(buttonMinimize);
+        buttonMinimize.setLayout(buttonMinimizeLayout);
+        buttonMinimizeLayout.setHorizontalGroup(
+            buttonMinimizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+        );
+        buttonMinimizeLayout.setVerticalGroup(
+            buttonMinimizeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        buttonClose.setBackground(new java.awt.Color(26, 47, 75));
+        buttonClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonMinimizeCloseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonMinimizeCloseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonMinimizeCloseMouseExited(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(47, 136, 134));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("X");
+
+        javax.swing.GroupLayout buttonCloseLayout = new javax.swing.GroupLayout(buttonClose);
+        buttonClose.setLayout(buttonCloseLayout);
+        buttonCloseLayout.setHorizontalGroup(
+            buttonCloseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+        );
+        buttonCloseLayout.setVerticalGroup(
+            buttonCloseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelTopLayout = new javax.swing.GroupLayout(panelTop);
+        panelTop.setLayout(panelTopLayout);
+        panelTopLayout.setHorizontalGroup(
+            panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTopLayout.createSequentialGroup()
+                .addContainerGap(778, Short.MAX_VALUE)
+                .addComponent(buttonMinimize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonClose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13))
+        );
+        panelTopLayout.setVerticalGroup(
+            panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTopLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(buttonClose, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonMinimize, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelMain.add(panelTop, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -344,7 +476,7 @@ public class MainInterface extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_buttonCurrencyMouseClicked
 
-    private void buttonCurrencyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyMouseEntered
+    private void buttonCurrencyTemperatureMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyTemperatureMouseEntered
         if (evt.getSource() == buttonCurrency) {
             buttonCurrency.setBackground(new Color(40, 71, 92));
         }
@@ -352,16 +484,16 @@ public class MainInterface extends javax.swing.JFrame {
             buttonTemperature.setBackground(new Color(40, 71, 92));
         }
 
-    }//GEN-LAST:event_buttonCurrencyMouseEntered
+    }//GEN-LAST:event_buttonCurrencyTemperatureMouseEntered
 
-    private void buttonCurrencyMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyMouseExited
+    private void buttonCurrencyTemperatureMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyTemperatureMouseExited
         if (evt.getSource() == buttonCurrency) {
             buttonCurrency.setBackground(new Color(26, 47, 75));
         }
         if (evt.getSource() == buttonTemperature) {
             buttonTemperature.setBackground(new Color(26, 47, 75));
         }
-    }//GEN-LAST:event_buttonCurrencyMouseExited
+    }//GEN-LAST:event_buttonCurrencyTemperatureMouseExited
 
     private void buttonGTQCurrencyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonGTQCurrencyMouseEntered
         if (evt.getSource() == buttonGTQCurrency) {
@@ -380,6 +512,34 @@ public class MainInterface extends javax.swing.JFrame {
             buttonCurrencyGTQ.setBackground(new Color(40,71,92));
         }
     }//GEN-LAST:event_buttonGTQCurrencyMouseExited
+
+    private void buttonMinimizeCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMinimizeCloseMouseEntered
+        if (evt.getSource() == buttonClose) {
+            buttonClose.setBackground(new Color(40, 71, 92));
+        }
+        if (evt.getSource() == buttonMinimize) {
+            buttonMinimize.setBackground(new Color(40, 71, 92));
+        }
+
+    }//GEN-LAST:event_buttonMinimizeCloseMouseEntered
+
+    private void buttonMinimizeCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMinimizeCloseMouseExited
+        if (evt.getSource() == buttonClose) {
+            buttonClose.setBackground(new Color(26, 47, 75));
+        }
+        if (evt.getSource() == buttonMinimize) {
+            buttonMinimize.setBackground(new Color(26, 47, 75));
+        }
+    }//GEN-LAST:event_buttonMinimizeCloseMouseExited
+
+    private void buttonMinimizeCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMinimizeCloseMouseClicked
+         if (evt.getSource() == buttonClose) {
+            System.exit(0);
+        }
+        if (evt.getSource() == buttonMinimize) {
+           this.setExtendedState(ICONIFIED);
+        }
+    }//GEN-LAST:event_buttonMinimizeCloseMouseClicked
 
     /**
      * @param args the command line arguments
@@ -417,9 +577,11 @@ public class MainInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel buttonClose;
     private javax.swing.JPanel buttonCurrency;
     private javax.swing.JButton buttonCurrencyGTQ;
     private javax.swing.JButton buttonGTQCurrency;
+    private javax.swing.JPanel buttonMinimize;
     private javax.swing.JPanel buttonTemperature;
     private javax.swing.JComboBox<String> comboCurrency;
     private javax.swing.JLabel jLabel1;
@@ -427,7 +589,9 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -435,6 +599,9 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel labelDolar;
     private javax.swing.JPanel panelCenter;
+    private javax.swing.JPanel panelLeft;
+    private javax.swing.JPanel panelMain;
+    private javax.swing.JPanel panelTop;
     private javax.swing.JPanel panel_currency;
     private javax.swing.JPanel panel_temperature;
     // End of variables declaration//GEN-END:variables
