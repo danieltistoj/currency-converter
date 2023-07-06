@@ -4,27 +4,27 @@
  * and open the template in the editor.
  */
 package com.currencyconverter.Class;
+import com.currencyconventer.Enum.Country;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuario
  */
 public class ApiClient {
-    private HashMap<String,Object> hashmap;
-    private String uri = "https://api.exchangerate-api.com/v4/latest/GTQ";
-    private List<Currency> listCurrency;
+    private String uri = "https://api.exchangerate-api.com/v4/latest/";
+    private ArrayList<Currency> listCurrency;
    
     public ApiClient() {
         listCurrency = new ArrayList<>();
@@ -33,64 +33,71 @@ public class ApiClient {
      * 
      * @return 
      */
-    public List callApi(){
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(uri))
-                .build();
-        
-        try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            
-            int statusCode = response.statusCode();
-            String responseBody = response.body();
+    public ArrayList callApi(String code) {
+        if (this.getCountryByCurrencyCode(code) != null) {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(uri + code))
+                    .build();
+
             try {
-                /**
-                 * takes a JSON object, extracts a nested object and its associated 
-                 * keys and values, and stores them in a HashMap for further use and 
-                 * manipulation.
-                 * 
-                 * toma un objeto JSON, extrae un objeto anidado y sus claves y valores 
-                 * asociados, y los almacena en un HashMap para su posterior uso y 
-                 * manipulación.
-                 */
-                JSONObject json = new JSONObject(responseBody);
-                JSONObject rates = (JSONObject) json.get("rates");
-                
-                Iterator keys = rates.keys();
-                HashMap<String,Object> hashmap = new HashMap<>();
-                while(keys.hasNext()){
-                    String key = (String) keys.next();
-                    Object value = rates.get(key);
-                    hashmap.put(key, value);
+                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                int statusCode = response.statusCode();
+                String responseBody = response.body();
+                try {
+                    /**
+                     * takes a JSON object, extracts a nested object and its
+                     * associated keys and values, and stores them in a HashMap
+                     * for further use and manipulation.
+                     *
+                     * toma un objeto JSON, extrae un objeto anidado y sus
+                     * claves y valores asociados, y los almacena en un HashMap
+                     * para su posterior uso y manipulación.
+                     */
+                    JSONObject json = new JSONObject(responseBody);
+                    JSONObject rates = (JSONObject) json.get("rates");
+
+                    Iterator keys = rates.keys();
+
+                    while (keys.hasNext()) {
+                        String key = (String) keys.next();
+                        Object value = rates.get(key);
+                        listCurrency.add(new Currency(key, Double.parseDouble(value.toString())));
+                        //hashmap.put(key, value);
+                    }
+
+                    listCurrency.forEach((currency)
+                            -> {
+                        Country country = this.getCountryByCurrencyCode(currency.getKey());
+                        if (country != null) {
+                            currency.setCountry(country.getCountryName());
+                        }
+                    });
+
+                } catch (JSONException ex) {
+                    System.out.println("Error");
                 }
-            /**
-             * 
-             * iterates over the elements of a HashMap and creates Currency 
-             * objects from the keys and values of the 
-             * HashMap, then adds these objects to a list called listCurrency . 
-             * The end result is a list of Currency objects 
-             * that represent the key-value pairs of the HashMap.
-             * 
-             * 
-             * Itera sobre los elementos de un HashMap y crea objetos Currency a 
-             * partir de las claves y los valores del HashMap, luego agrega estos 
-             * objetos a una lista llamada listCurrency. El resultado final es una lista 
-             * de objetos Currency que representa los pares clave-valor del HashMap.
-             * 
-             */
-            hashmap.forEach((key,value)->{
-                listCurrency.add(new Currency(key,Double.parseDouble(value.toString()))); 
-                  
-            });
-            
-            } catch (JSONException ex) {
+            } catch (IOException | InterruptedException e) {
                 System.out.println("Error");
             }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+        }else{
+            System.out.println("the currency code does not exist");
         }
+
         return this.listCurrency;
     }
-    
+    /**
+     * 
+     * @param currencyCode
+     * @return 
+     */
+    private Country getCountryByCurrencyCode(String currencyCode) {
+        for (Country country : Country.values()) {
+            if (country.getCurrencyCode().equals(currencyCode)) {
+                return country;
+            }
+        }
+        return null;
+    }
 }

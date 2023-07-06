@@ -6,6 +6,7 @@
 package com.currencyconverter.main;
 import com.currencyconverter.Class.ApiClient;
 import com.currencyconverter.Class.Currency;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -18,14 +19,14 @@ public class Main {
      */
     public static void main(String[] args) {
         ApiClient apiClient = new ApiClient();
-        List<Currency> lista = apiClient.callApi();
+        ArrayList<Currency> lista =  apiClient.callApi("USD");
         
         lista.sort((Currency c1,Currency c2)-> 
                 c1.getKey().compareTo(c2.getKey())
         );
 
         lista.forEach((currency)->
-                System.out.println(currency.getKey()+" : "
+                System.out.println("("+currency.getKey()+")"+" "+currency.getCountry()+" : "
                         +currency.getValue()));
     }
    
