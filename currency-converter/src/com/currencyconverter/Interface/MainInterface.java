@@ -5,6 +5,8 @@
  */
 package com.currencyconverter.Interface;
 
+import java.awt.Color;
+
 /**
  *
  * @author Usuario
@@ -47,31 +49,39 @@ public class MainInterface extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(26, 47, 75));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+            .addGap(0, 796, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
+            .addGap(0, 98, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel3.setBackground(new java.awt.Color(26, 47, 75));
 
+        buttonCurrency.setBackground(new java.awt.Color(26, 47, 75));
         buttonCurrency.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonCurrency.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonCurrencyMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonCurrencyMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonCurrencyMouseExited(evt);
+            }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(47, 136, 134));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Conversor de moneda");
 
@@ -89,14 +99,22 @@ public class MainInterface extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        buttonTemperature.setBackground(new java.awt.Color(26, 47, 75));
         buttonTemperature.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonTemperature.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonCurrencyMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonCurrencyMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonCurrencyMouseExited(evt);
+            }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(47, 136, 134));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Conversor de temperatura");
 
@@ -104,7 +122,7 @@ public class MainInterface extends javax.swing.JFrame {
         buttonTemperature.setLayout(buttonTemperatureLayout);
         buttonTemperatureLayout.setHorizontalGroup(
             buttonTemperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
         );
         buttonTemperatureLayout.setVerticalGroup(
             buttonTemperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,6 +153,8 @@ public class MainInterface extends javax.swing.JFrame {
 
         panelCenter.setLayout(new java.awt.CardLayout());
 
+        panel_currency.setBackground(new java.awt.Color(40, 71, 92));
+
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Panel 1");
 
@@ -145,7 +165,7 @@ public class MainInterface extends javax.swing.JFrame {
             .addGroup(panel_currencyLayout.createSequentialGroup()
                 .addGap(234, 234, 234)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         panel_currencyLayout.setVerticalGroup(
             panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,6 +177,8 @@ public class MainInterface extends javax.swing.JFrame {
 
         panelCenter.add(panel_currency, "card2");
 
+        panel_temperature.setBackground(new java.awt.Color(40, 71, 92));
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Panel 2");
 
@@ -167,7 +189,7 @@ public class MainInterface extends javax.swing.JFrame {
             .addGroup(panel_temperatureLayout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
         panel_temperatureLayout.setVerticalGroup(
             panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,7 +207,7 @@ public class MainInterface extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,6 +227,25 @@ public class MainInterface extends javax.swing.JFrame {
            panel_temperature.setVisible(true);
        }
     }//GEN-LAST:event_buttonCurrencyMouseClicked
+
+    private void buttonCurrencyMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyMouseEntered
+        if (evt.getSource() == buttonCurrency) {
+            buttonCurrency.setBackground(new Color(40, 71, 92));
+        }
+        if (evt.getSource() == buttonTemperature) {
+            buttonTemperature.setBackground(new Color(40, 71, 92));
+        }
+
+    }//GEN-LAST:event_buttonCurrencyMouseEntered
+
+    private void buttonCurrencyMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyMouseExited
+        if (evt.getSource() == buttonCurrency) {
+            buttonCurrency.setBackground(new Color(26, 47, 75));
+        }
+        if (evt.getSource() == buttonTemperature) {
+            buttonTemperature.setBackground(new Color(26, 47, 75));
+        }
+    }//GEN-LAST:event_buttonCurrencyMouseExited
 
     /**
      * @param args the command line arguments
