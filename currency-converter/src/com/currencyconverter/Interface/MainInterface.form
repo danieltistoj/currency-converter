@@ -35,6 +35,15 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="panelMain">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder thickness="4">
+              <Color PropertyName="color" blue="9b" green="c6" red="84" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
       <SubComponents>
@@ -64,7 +73,7 @@
                       <Component id="buttonCurrency" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="buttonTemperature" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="205" max="32767" attributes="0"/>
+                      <EmptySpace pref="197" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -202,8 +211,8 @@
                                       <Component id="jSeparator1" max="32767" attributes="0"/>
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextField1" max="32767" attributes="0"/>
-                                              <Component id="jTextField2" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
+                                              <Component id="txtLocalCurrency" max="32767" attributes="0"/>
+                                              <Component id="txtUnknownCurrency" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="buttonGTQCurrency" min="-2" pref="126" max="-2" attributes="0"/>
                                       </Group>
@@ -216,7 +225,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="115" max="32767" attributes="0"/>
+                          <EmptySpace pref="107" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -233,14 +242,14 @@
                           </Group>
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="txtLocalCurrency" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField2" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="txtUnknownCurrency" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="comboCurrency" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
@@ -250,7 +259,7 @@
                               <Component id="buttonGTQCurrency" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="buttonCurrencyGTQ" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="62" max="32767" attributes="0"/>
+                          <EmptySpace pref="54" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -262,12 +271,12 @@
                       <Font name="Segoe UI" size="18" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="GTQ"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="txtLocalCurrency">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="5c" green="47" red="28" type="rgb"/>
@@ -278,6 +287,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="9b" green="c6" red="84" type="rgb"/>
                     </Property>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -286,7 +296,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="txtUnknownCurrency">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="5c" green="47" red="28" type="rgb"/>
@@ -297,6 +307,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="9b" green="c6" red="84" type="rgb"/>
                     </Property>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="null"/>
                     </Property>
@@ -314,7 +325,7 @@
                       <Font name="Segoe UI" size="14" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="0"/>
@@ -322,7 +333,7 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder thickness="2">
-                          <Color PropertyName="color" blue="9b" green="c6" red="84" type="rgb"/>
+                          <Color PropertyName="color" blue="86" green="88" red="2f" type="rgb"/>
                         </LineBorder>
                       </Border>
                     </Property>
@@ -340,13 +351,13 @@
                       <Font name="Segoe UI" size="14" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="GTQ -&gt; ?"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder thickness="2">
-                          <Color PropertyName="color" blue="9b" green="c6" red="84" type="rgb"/>
+                          <Color PropertyName="color" blue="86" green="88" red="2f" type="rgb"/>
                         </LineBorder>
                       </Border>
                     </Property>
@@ -369,13 +380,13 @@
                       <Font name="Segoe UI" size="14" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="? -&gt; GTQ"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                         <LineBorder thickness="2">
-                          <Color PropertyName="color" blue="9b" green="c6" red="84" type="rgb"/>
+                          <Color PropertyName="color" blue="86" green="88" red="2f" type="rgb"/>
                         </LineBorder>
                       </Border>
                     </Property>
@@ -392,20 +403,20 @@
                 <Component class="javax.swing.JSeparator" name="jSeparator1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="9b" green="c6" red="84" type="rgb"/>
+                      <Color blue="86" green="88" red="2f" type="rgb"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -450,7 +461,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="69" max="-2" attributes="0"/>
-                          <EmptySpace pref="382" max="32767" attributes="0"/>
+                          <EmptySpace pref="374" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -459,7 +470,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="34" max="-2" attributes="0"/>
-                          <EmptySpace pref="212" max="32767" attributes="0"/>
+                          <EmptySpace pref="204" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -493,7 +504,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="778" max="32767" attributes="0"/>
+                      <EmptySpace pref="770" max="32767" attributes="0"/>
                       <Component id="buttonMinimize" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Component id="buttonClose" min="-2" max="-2" attributes="0"/>

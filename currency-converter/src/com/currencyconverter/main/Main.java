@@ -7,7 +7,7 @@ package com.currencyconverter.main;
 import com.currencyconverter.Class.ApiClient;
 import com.currencyconverter.Class.Currency;
 import java.util.ArrayList;
-import java.util.List;
+
 /**
  *
  * @author Usuario
