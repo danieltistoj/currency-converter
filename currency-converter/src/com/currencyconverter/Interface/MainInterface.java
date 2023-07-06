@@ -16,6 +16,9 @@ public class MainInterface extends javax.swing.JFrame {
      */
     public MainInterface() {
         initComponents();
+        setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Conversor de moneda y temperatura");
     }
 
     /**
@@ -32,11 +35,13 @@ public class MainInterface extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         buttonCurrency = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        panelTemperature = new javax.swing.JPanel();
+        buttonTemperature = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         panelCenter = new javax.swing.JPanel();
         panel_currency = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         panel_temperature = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +64,13 @@ public class MainInterface extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 255));
 
+        buttonCurrency.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonCurrency.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCurrencyMouseClicked(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Conversor de moneda");
@@ -77,19 +89,26 @@ public class MainInterface extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        buttonTemperature.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonTemperature.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCurrencyMouseClicked(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Conversor de temperatura");
 
-        javax.swing.GroupLayout panelTemperatureLayout = new javax.swing.GroupLayout(panelTemperature);
-        panelTemperature.setLayout(panelTemperatureLayout);
-        panelTemperatureLayout.setHorizontalGroup(
-            panelTemperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout buttonTemperatureLayout = new javax.swing.GroupLayout(buttonTemperature);
+        buttonTemperature.setLayout(buttonTemperatureLayout);
+        buttonTemperatureLayout.setHorizontalGroup(
+            buttonTemperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
         );
-        panelTemperatureLayout.setVerticalGroup(
-            panelTemperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTemperatureLayout.createSequentialGroup()
+        buttonTemperatureLayout.setVerticalGroup(
+            buttonTemperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonTemperatureLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -100,7 +119,7 @@ public class MainInterface extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(buttonCurrency, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +127,7 @@ public class MainInterface extends javax.swing.JFrame {
                 .addGap(83, 83, 83)
                 .addComponent(buttonCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(panelTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(107, Short.MAX_VALUE))
         );
 
@@ -116,28 +135,46 @@ public class MainInterface extends javax.swing.JFrame {
 
         panelCenter.setLayout(new java.awt.CardLayout());
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Panel 1");
+
         javax.swing.GroupLayout panel_currencyLayout = new javax.swing.GroupLayout(panel_currency);
         panel_currency.setLayout(panel_currencyLayout);
         panel_currencyLayout.setHorizontalGroup(
             panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
+            .addGroup(panel_currencyLayout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         panel_currencyLayout.setVerticalGroup(
             panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGroup(panel_currencyLayout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         panelCenter.add(panel_currency, "card2");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Panel 2");
 
         javax.swing.GroupLayout panel_temperatureLayout = new javax.swing.GroupLayout(panel_temperature);
         panel_temperature.setLayout(panel_temperatureLayout);
         panel_temperatureLayout.setHorizontalGroup(
             panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
+            .addGroup(panel_temperatureLayout.createSequentialGroup()
+                .addGap(229, 229, 229)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(247, Short.MAX_VALUE))
         );
         panel_temperatureLayout.setVerticalGroup(
             panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGroup(panel_temperatureLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         panelCenter.add(panel_temperature, "card3");
@@ -157,6 +194,17 @@ public class MainInterface extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonCurrencyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyMouseClicked
+       if(evt.getSource() == buttonCurrency){
+           panel_currency.setVisible(true);
+           panel_temperature.setVisible(false);
+       } 
+       if(evt.getSource() == buttonTemperature){
+           panel_currency.setVisible(false);
+           panel_temperature.setVisible(true);
+       }
+    }//GEN-LAST:event_buttonCurrencyMouseClicked
 
     /**
      * @param args the command line arguments
@@ -195,14 +243,16 @@ public class MainInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonCurrency;
+    private javax.swing.JPanel buttonTemperature;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel panelCenter;
-    private javax.swing.JPanel panelTemperature;
     private javax.swing.JPanel panel_currency;
     private javax.swing.JPanel panel_temperature;
     // End of variables declaration//GEN-END:variables

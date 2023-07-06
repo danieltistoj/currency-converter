@@ -5,7 +5,7 @@
  */
 package com.currencyconverter.main;
 
-import com.currencyconventer.Enum.Country;
+import com.currencyconverter.Enum.Country;
 
 /**
  *

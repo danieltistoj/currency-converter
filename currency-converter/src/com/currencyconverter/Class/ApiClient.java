@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.currencyconverter.Class;
-import com.currencyconventer.Enum.Country;
+import com.currencyconverter.Enum.Country;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
