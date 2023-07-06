@@ -6,6 +6,7 @@
 package com.currencyconverter.Interface;
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,6 +22,8 @@ public class MainInterface extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setTitle("Conversor de moneda y temperatura");
+        labelDolar.setIcon(new  ImageIcon("src/com/currencyconverter/img/dolar_icon.png"));
+        labelTemperatura.setIcon(new  ImageIcon("src/com/currencyconverter/img/temperatura_icon.png"));
     }
 
     /**
@@ -34,6 +37,8 @@ public class MainInterface extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        labelDolar = new javax.swing.JLabel();
+        labelTemperatura = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         buttonCurrency = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -51,15 +56,29 @@ public class MainInterface extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(26, 47, 75));
 
+        labelDolar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        labelTemperatura.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 796, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(labelDolar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(567, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTemperatura)
+                    .addComponent(labelDolar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
@@ -146,7 +165,7 @@ public class MainInterface extends javax.swing.JFrame {
                 .addComponent(buttonCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(buttonTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
@@ -172,7 +191,7 @@ public class MainInterface extends javax.swing.JFrame {
             .addGroup(panel_currencyLayout.createSequentialGroup()
                 .addGap(138, 138, 138)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
 
         panelCenter.add(panel_currency, "card2");
@@ -196,7 +215,7 @@ public class MainInterface extends javax.swing.JFrame {
             .addGroup(panel_temperatureLayout.createSequentialGroup()
                 .addGap(133, 133, 133)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         panelCenter.add(panel_temperature, "card3");
@@ -207,7 +226,7 @@ public class MainInterface extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 796, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,6 +312,8 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel labelDolar;
+    private javax.swing.JLabel labelTemperatura;
     private javax.swing.JPanel panelCenter;
     private javax.swing.JPanel panel_currency;
     private javax.swing.JPanel panel_temperature;
