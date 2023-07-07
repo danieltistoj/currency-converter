@@ -14,6 +14,7 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuario
@@ -81,7 +82,7 @@ public class MainInterface extends javax.swing.JFrame {
     private void setComboboxElements(){
         list.forEach((currency) -> {
             if (currency.getCountry() != null) {
-                comboCurrency.addItem(currency.getCountry());
+                comboCountries.addItem(currency.getCountry());
                 //System.out.println(currency.getCountry());
             }
         });
@@ -106,7 +107,7 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtLocalCurrency = new javax.swing.JTextField();
         txtUnknownCurrency = new javax.swing.JTextField();
-        comboCurrency = new javax.swing.JComboBox<>();
+        comboCountries = new javax.swing.JComboBox<>();
         buttonGTQCurrency = new javax.swing.JButton();
         buttonCurrencyGTQ = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -236,10 +237,10 @@ public class MainInterface extends javax.swing.JFrame {
         txtUnknownCurrency.setBorder(null);
         txtUnknownCurrency.setCaretColor(new java.awt.Color(132, 198, 155));
 
-        comboCurrency.setBackground(new java.awt.Color(40, 71, 92));
-        comboCurrency.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comboCurrency.setForeground(new java.awt.Color(47, 136, 134));
-        comboCurrency.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
+        comboCountries.setBackground(new java.awt.Color(40, 71, 92));
+        comboCountries.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comboCountries.setForeground(new java.awt.Color(47, 136, 134));
+        comboCountries.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
 
         buttonGTQCurrency.setBackground(new java.awt.Color(40, 71, 92));
         buttonGTQCurrency.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -254,6 +255,11 @@ public class MainInterface extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 buttonGTQCurrencyMouseExited(evt);
+            }
+        });
+        buttonGTQCurrency.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGTQCurrencyActionPerformed(evt);
             }
         });
 
@@ -310,7 +316,7 @@ public class MainInterface extends javax.swing.JFrame {
                         .addGroup(panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(buttonCurrencyGTQ, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(comboCountries, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         panel_currencyLayout.setVerticalGroup(
@@ -331,7 +337,7 @@ public class MainInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panel_currencyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUnknownCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboCountries, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -544,6 +550,21 @@ public class MainInterface extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonMinimizeCloseMouseClicked
 
+    private void buttonGTQCurrencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGTQCurrencyActionPerformed
+       if(!txtLocalCurrency.getText().equals("")){
+           try {
+               double currencyGTQ = Double.parseDouble(txtLocalCurrency.getText());
+               String selectionItem = (String) comboCountries.getSelectedItem();
+               System.out.println(selectionItem);
+           } catch (Exception e) {
+               JOptionPane.showMessageDialog(null, "Ingrese solo digitos","Error",JOptionPane.ERROR_MESSAGE);
+               txtLocalCurrency.setText("");
+           }
+       }else{
+           JOptionPane.showMessageDialog(null,"Ingre una cantidad en GTQ","Error",JOptionPane.ERROR_MESSAGE);
+       }
+    }//GEN-LAST:event_buttonGTQCurrencyActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -586,7 +607,7 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JButton buttonGTQCurrency;
     private javax.swing.JPanel buttonMinimize;
     private javax.swing.JPanel buttonTemperature;
-    private javax.swing.JComboBox<String> comboCurrency;
+    private javax.swing.JComboBox<String> comboCountries;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -594,8 +615,6 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelDolar;

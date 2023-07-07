@@ -221,7 +221,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel3" min="-2" pref="44" max="-2" attributes="0"/>
                                       <Component id="buttonCurrencyGTQ" alignment="0" min="-2" pref="117" max="-2" attributes="0"/>
-                                      <Component id="comboCurrency" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
+                                      <Component id="comboCountries" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -250,7 +250,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtUnknownCurrency" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
-                              <Component id="comboCurrency" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="comboCountries" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                           <Component id="jSeparator2" min="-2" pref="3" max="-2" attributes="0"/>
@@ -316,7 +316,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="comboCurrency">
+                <Component class="javax.swing.JComboBox" name="comboCountries">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="5c" green="47" red="28" type="rgb"/>
@@ -369,6 +369,7 @@
                   <Events>
                     <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonGTQCurrencyMouseEntered"/>
                     <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonGTQCurrencyMouseExited"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGTQCurrencyActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="buttonCurrencyGTQ">
