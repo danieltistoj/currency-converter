@@ -69,9 +69,11 @@ public class MainInterface extends javax.swing.JFrame {
         System.out.println(" ");
         list = apiClient.callApi("GTQ");
         //sorts the list of countries in alphabetical order
+        
         list.sort((Currency c1, Currency c2)->
                 c1.getKey().compareTo(c2.getKey())
         );
+        
         setComboboxElements();
         
       
@@ -555,8 +557,18 @@ public class MainInterface extends javax.swing.JFrame {
            try {
                double currencyGTQ = Double.parseDouble(txtLocalCurrency.getText());
                String selectionItem = (String) comboCountries.getSelectedItem();
-               System.out.println(selectionItem);
+               //System.out.println(selectionItem);
+               double change=0;
+               
+               for(Currency currency:list){
+                   if(currency.getCountry() == selectionItem){
+                       change = currency.getValue();
+                   }
+               }
+               System.out.println("value: "+change);
+               
            } catch (Exception e) {
+               e.printStackTrace();
                JOptionPane.showMessageDialog(null, "Ingrese solo digitos","Error",JOptionPane.ERROR_MESSAGE);
                txtLocalCurrency.setText("");
            }

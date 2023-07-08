@@ -62,20 +62,26 @@ public class ApiClient {
                         String key = (String) keys.next();
                         Object value = rates.get(key);
                         listCurrency.add(new Currency(key, Double.parseDouble(value.toString())));
-                        //hashmap.put(key, value);
+                       
                     }
-
+                    
                     listCurrency.forEach((currency)
                             -> {
+                      
+            
                         Country country = this.getCountryByCurrencyCode(currency.getKey());
                         if (country != null) {
                             
                             currency.setCountry(country.getCountryName());
+                            
                         }else{
                             //System.out.println("HoLA");
+                           // listCurrency.remove(currency);
                             System.out.println(currency.getKey());
                         }
+                        
                     });
+                   
 
                 } catch (JSONException ex) {
                     System.out.println("Error");
