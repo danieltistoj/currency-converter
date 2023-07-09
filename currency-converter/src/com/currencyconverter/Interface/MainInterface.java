@@ -14,7 +14,9 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /**
  *
  * @author Usuario
@@ -278,6 +280,11 @@ public class MainInterface extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 buttonGTQCurrencyMouseExited(evt);
+            }
+        });
+        buttonCurrencyGTQ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCurrencyGTQActionPerformed(evt);
             }
         });
 
@@ -551,13 +558,12 @@ public class MainInterface extends javax.swing.JFrame {
            this.setExtendedState(ICONIFIED);
         }
     }//GEN-LAST:event_buttonMinimizeCloseMouseClicked
-
-    private void buttonGTQCurrencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGTQCurrencyActionPerformed
-       if(!txtLocalCurrency.getText().equals("")){
+    private void convertCurrency(boolean option, JTextField text){
+           if(text.getText()!=""){
            try {
-               double currencyGTQ = Double.parseDouble(txtLocalCurrency.getText());
+               double currencyGTQ = Double.parseDouble(text.getText());
                String selectionItem = (String) comboCountries.getSelectedItem();
-               //System.out.println(selectionItem);
+               
                double change=0;
                
                for(Currency currency:list){
@@ -565,17 +571,28 @@ public class MainInterface extends javax.swing.JFrame {
                        change = currency.getValue();
                    }
                }
-               System.out.println("value: "+change);
-               
+               if(option){
+                   txtUnknownCurrency.setText(""+(change*currencyGTQ));
+                   
+               }else{
+                   txtLocalCurrency.setText(""+(currencyGTQ/change));
+               }       
            } catch (Exception e) {
                e.printStackTrace();
                JOptionPane.showMessageDialog(null, "Ingrese solo digitos","Error",JOptionPane.ERROR_MESSAGE);
-               txtLocalCurrency.setText("");
+               //txtLocalCurrency.setText("");
            }
        }else{
            JOptionPane.showMessageDialog(null,"Ingre una cantidad en GTQ","Error",JOptionPane.ERROR_MESSAGE);
        }
+    }
+    private void buttonGTQCurrencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGTQCurrencyActionPerformed
+        convertCurrency(true, txtLocalCurrency);
     }//GEN-LAST:event_buttonGTQCurrencyActionPerformed
+
+    private void buttonCurrencyGTQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCurrencyGTQActionPerformed
+        convertCurrency(false, txtUnknownCurrency);
+    }//GEN-LAST:event_buttonCurrencyGTQActionPerformed
 
     /**
      * @param args the command line arguments
