@@ -123,12 +123,13 @@ public class MainInterface extends javax.swing.JFrame {
         panel_temperature = new javax.swing.JPanel();
         labelTemperature = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
+        txtTemperature = new javax.swing.JTextField();
+        comboboxTemperture1 = new javax.swing.JComboBox<>();
+        comboboxTemperature2 = new javax.swing.JComboBox<>();
+        labelTemperatureResult = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
+        buttonConvertedTemperature = new javax.swing.JButton();
         panelTop = new javax.swing.JPanel();
         buttonMinimize = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -304,7 +305,6 @@ public class MainInterface extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(47, 136, 134));
 
         labelDolar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelDolar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(47, 136, 134));
@@ -370,40 +370,47 @@ public class MainInterface extends javax.swing.JFrame {
         panel_temperature.setBackground(new java.awt.Color(40, 71, 92));
 
         labelTemperature.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelTemperature.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(47, 136, 134));
         jLabel8.setText("Conversor De Temperatura");
 
-        jTextField1.setBackground(new java.awt.Color(40, 71, 92));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(132, 198, 155));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField1.setBorder(null);
-        jTextField1.setCaretColor(new java.awt.Color(132, 198, 155));
+        txtTemperature.setBackground(new java.awt.Color(40, 71, 92));
+        txtTemperature.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtTemperature.setForeground(new java.awt.Color(132, 198, 155));
+        txtTemperature.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTemperature.setBorder(null);
+        txtTemperature.setCaretColor(new java.awt.Color(132, 198, 155));
 
-        jComboBox1.setBackground(new java.awt.Color(40, 71, 92));
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(47, 136, 134));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
+        comboboxTemperture1.setBackground(new java.awt.Color(40, 71, 92));
+        comboboxTemperture1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comboboxTemperture1.setForeground(new java.awt.Color(47, 136, 134));
+        comboboxTemperture1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin ", "Rankine " }));
+        comboboxTemperture1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
 
-        jComboBox2.setBackground(new java.awt.Color(40, 71, 92));
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(47, 136, 134));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
+        comboboxTemperature2.setBackground(new java.awt.Color(40, 71, 92));
+        comboboxTemperature2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comboboxTemperature2.setForeground(new java.awt.Color(47, 136, 134));
+        comboboxTemperature2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin ", "Rankine " }));
+        comboboxTemperature2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(132, 198, 155));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelTemperatureResult.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelTemperatureResult.setForeground(new java.awt.Color(132, 198, 155));
+        labelTemperatureResult.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         jSeparator3.setBackground(new java.awt.Color(47, 136, 134));
         jSeparator3.setForeground(new java.awt.Color(47, 136, 134));
 
         jSeparator5.setBackground(new java.awt.Color(47, 136, 134));
         jSeparator5.setForeground(new java.awt.Color(47, 136, 134));
+
+        buttonConvertedTemperature.setBackground(new java.awt.Color(40, 71, 92));
+        buttonConvertedTemperature.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buttonConvertedTemperature.setForeground(new java.awt.Color(47, 136, 134));
+        buttonConvertedTemperature.setText("Convertir");
+        buttonConvertedTemperature.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
+        buttonConvertedTemperature.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonConvertedTemperature.setFocusPainted(false);
 
         javax.swing.GroupLayout panel_temperatureLayout = new javax.swing.GroupLayout(panel_temperature);
         panel_temperature.setLayout(panel_temperatureLayout);
@@ -422,15 +429,19 @@ public class MainInterface extends javax.swing.JFrame {
                             .addGap(80, 80, 80)
                             .addGroup(panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jSeparator5)
-                                .addComponent(jTextField1))))
+                                .addComponent(txtTemperature))))
                     .addGroup(panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jSeparator3)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)))
+                        .addComponent(labelTemperatureResult, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, 104, Short.MAX_VALUE)
-                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(comboboxTemperture1, 0, 104, Short.MAX_VALUE)
+                    .addComponent(comboboxTemperature2, 0, 0, Short.MAX_VALUE))
                 .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_temperatureLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonConvertedTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(255, 255, 255))
         );
         panel_temperatureLayout.setVerticalGroup(
             panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,20 +453,22 @@ public class MainInterface extends javax.swing.JFrame {
                 .addGroup(panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel_temperatureLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_temperatureLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboboxTemperture1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)))
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(panel_temperatureLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(comboboxTemperature2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(labelTemperatureResult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(buttonConvertedTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         panelCenter.add(panel_temperature, "card3");
@@ -708,14 +721,15 @@ public class MainInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonClose;
+    private javax.swing.JButton buttonConvertedTemperature;
     private javax.swing.JPanel buttonCurrency;
     private javax.swing.JButton buttonCurrencyGTQ;
     private javax.swing.JButton buttonGTQCurrency;
     private javax.swing.JPanel buttonMinimize;
     private javax.swing.JPanel buttonTemperature;
     private javax.swing.JComboBox<String> comboCountries;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> comboboxTemperature2;
+    private javax.swing.JComboBox<String> comboboxTemperture1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -723,15 +737,14 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelDolar;
     private javax.swing.JLabel labelTemperature;
+    private javax.swing.JLabel labelTemperatureResult;
     private javax.swing.JPanel panelCenter;
     private javax.swing.JPanel panelLeft;
     private javax.swing.JPanel panelMain;
@@ -739,6 +752,7 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JPanel panel_currency;
     private javax.swing.JPanel panel_temperature;
     private javax.swing.JTextField txtLocalCurrency;
+    private javax.swing.JTextField txtTemperature;
     private javax.swing.JTextField txtUnknownCurrency;
     // End of variables declaration//GEN-END:variables
 }
