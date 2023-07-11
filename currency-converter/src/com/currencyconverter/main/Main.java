@@ -21,13 +21,13 @@ public class Main {
         ApiClient apiClient = new ApiClient();
         ArrayList<Currency> lista =  apiClient.callApi("GTQ");
         System.out.println(" ");
+        /*
         lista.sort((Currency c1,Currency c2)-> 
                 c1.getKey().compareTo(c2.getKey())
         );
-
+*/
         lista.forEach((currency)->
-                System.out.println("("+currency.getKey()+")"+" "+currency.getCountry()+" : "
-                        +currency.getValue()));
+                System.out.println(currency.getCountry()));
     }
    
     
