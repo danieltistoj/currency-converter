@@ -954,6 +954,24 @@ public class MainInterface extends javax.swing.JFrame {
                         result = distance / 1.609344;
                     }else if(sourceUnit.equals("Kilometro")&&destinationUnit.equals("Pies")){
                         result = distance * 3280.84;
+                    }else if(sourceUnit.equals("Milla")&&destinationUnit.equals("Centimetro")){
+                        result = distance * 160934.4;
+                    }else if(sourceUnit.equals("Milla")&&destinationUnit.equals("Metro")){
+                        result = distance  * 1609.344;
+                    }else if(sourceUnit.equals("Milla")&&destinationUnit.equals("Kilometro")){
+                        result = distance  * 1.609344;
+                    }else if(sourceUnit.equals("Milla")&&destinationUnit.equals("Pies")){
+                        result = distance  * 5280;
+                    }else if(sourceUnit.equals("Pies")&&destinationUnit.equals("Centimetro")){
+                        result = distance  * 30.48;
+                    }else if(sourceUnit.equals("Pies")&&destinationUnit.equals("Metro")){
+                        result = distance   / 3.28084;
+                    }else if(sourceUnit.equals("Pies")&&destinationUnit.equals("Kilometro")){
+                        result = distance   / 3280.84;
+                    }else if(sourceUnit.equals("Pies")&&destinationUnit.equals("Milla")){
+                        result = distance / 5280 ;
+                    }else if(sourceUnit.equals(destinationUnit)){
+                        result = distance;               
                     }
                     labelDistanceResult.setText(""+result);
                 } else {
