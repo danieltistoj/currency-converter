@@ -842,32 +842,37 @@ public class MainInterface extends javax.swing.JFrame {
            this.setExtendedState(ICONIFIED);
         }
     }//GEN-LAST:event_buttonMinimizeCloseMouseClicked
-    private void convertCurrency(boolean option, JTextField text){
-           if(text.getText()!=""){
-           try {
-               double currencyGTQ = Double.parseDouble(text.getText());
-               String selectionItem = (String) comboCountries.getSelectedItem();
-               
-               double change=0;
-               
-               for(Currency currency:list){
-                   if(currency.getCountry() == selectionItem){
-                       change = currency.getValue();
-                   }
-               }
-               if(option){
-                   txtUnknownCurrency.setText(""+(change*currencyGTQ));
-                   
-               }else{
-                   txtLocalCurrency.setText(""+(currencyGTQ/change));
-               }       
-           } catch (Exception e) {
-               e.printStackTrace();
-               JOptionPane.showMessageDialog(null, "Ingrese solo digitos","Error",JOptionPane.ERROR_MESSAGE);
-           }
-       }else{
-           JOptionPane.showMessageDialog(null,"Ingre una cantidad en GTQ","Error",JOptionPane.ERROR_MESSAGE);
-       }
+    private void convertCurrency(boolean option, JTextField text) {
+        if (text.getText() != "") {
+            try {
+                double currencyGTQ = Double.parseDouble(text.getText());
+                if (currencyGTQ >= 0) {
+                    String selectionItem = (String) comboCountries.getSelectedItem();
+
+                    double change = 0;
+
+                    for (Currency currency : list) {
+                        if (currency.getCountry() == selectionItem) {
+                            change = currency.getValue();
+                        }
+                    }
+                    if (option) {
+                        txtUnknownCurrency.setText("" + (change * currencyGTQ));
+
+                    } else {
+                        txtLocalCurrency.setText("" + (currencyGTQ / change));
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese solo valores positivos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Ingrese solo digitos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingre una cantidad en GTQ", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
     private void buttonGTQCurrencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGTQCurrencyActionPerformed
         convertCurrency(true, txtLocalCurrency);
