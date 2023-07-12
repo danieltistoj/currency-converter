@@ -14,6 +14,7 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.text.DecimalFormat;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -37,6 +38,16 @@ public class MainInterface extends javax.swing.JFrame {
         setResizable(false);
         labelDolar.setIcon(new  ImageIcon("src/com/currencyconverter/img/icon-dolar2.png"));
         labelTemperature.setIcon(new ImageIcon("src/com/currencyconverter/img/icons8-temperatura-50.png"));
+        
+        comboboxTemperture1.addItem("Celsius");
+        comboboxTemperture1.addItem("Fahrenheit");
+        comboboxTemperture1.addItem("Kelvin");
+        comboboxTemperture1.addItem("Rankine");
+        
+        comboboxTemperature2.addItem("Celsius");
+        comboboxTemperature2.addItem("Fahrenheit");
+        comboboxTemperature2.addItem("Kelvin");
+        comboboxTemperature2.addItem("Rankine");
         /**
          * se agrega un MouseListener para detectar el clic inicial en la ventana y 
          * un MouseMotionListener para realizar el arrastre de la ventana.
@@ -108,6 +119,8 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         buttonTemperature = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         panelCenter = new javax.swing.JPanel();
         panel_currency = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -210,12 +223,34 @@ public class MainInterface extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
+        jPanel1.setBackground(new java.awt.Color(26, 47, 75));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(47, 136, 134));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Conversor Distancia");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel4)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelLeftLayout = new javax.swing.GroupLayout(panelLeft);
         panelLeft.setLayout(panelLeftLayout);
         panelLeftLayout.setHorizontalGroup(
             panelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(buttonCurrency, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelLeftLayout.setVerticalGroup(
             panelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,7 +259,9 @@ public class MainInterface extends javax.swing.JFrame {
                 .addComponent(buttonCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(buttonTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         panelMain.add(panelLeft, java.awt.BorderLayout.LINE_START);
@@ -385,13 +422,11 @@ public class MainInterface extends javax.swing.JFrame {
         comboboxTemperture1.setBackground(new java.awt.Color(40, 71, 92));
         comboboxTemperture1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboboxTemperture1.setForeground(new java.awt.Color(47, 136, 134));
-        comboboxTemperture1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin ", "Rankine " }));
         comboboxTemperture1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
 
         comboboxTemperature2.setBackground(new java.awt.Color(40, 71, 92));
         comboboxTemperature2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboboxTemperature2.setForeground(new java.awt.Color(47, 136, 134));
-        comboboxTemperature2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celsius", "Fahrenheit", "Kelvin ", "Rankine " }));
         comboboxTemperature2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
 
         labelTemperatureResult.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -411,6 +446,11 @@ public class MainInterface extends javax.swing.JFrame {
         buttonConvertedTemperature.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
         buttonConvertedTemperature.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonConvertedTemperature.setFocusPainted(false);
+        buttonConvertedTemperature.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonConvertedTemperatureActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel_temperatureLayout = new javax.swing.GroupLayout(panel_temperature);
         panel_temperature.setLayout(panel_temperatureLayout);
@@ -684,6 +724,52 @@ public class MainInterface extends javax.swing.JFrame {
         convertCurrency(false, txtUnknownCurrency);
     }//GEN-LAST:event_buttonCurrencyGTQActionPerformed
 
+    private void buttonConvertedTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConvertedTemperatureActionPerformed
+        if(!txtTemperature.getText().equals("")){
+            try {
+                double temperature = Double.parseDouble(txtTemperature.getText()),result=0;
+                String temperature1 = (String) comboboxTemperture1.getSelectedItem();
+                String temperature2 = (String) comboboxTemperature2.getSelectedItem();
+                
+                if (temperature1.equals("Celsius") && temperature2.equals("Fahrenheit")) {
+                    result = (temperature * 1.8) + 32.0;
+                } else if (temperature1.equals("Celsius") && temperature2.equals("Kelvin")) {
+                    result = temperature + 273.15;
+                } else if (temperature1.equals("Celsius") && temperature2.equals("Rankine")) {
+                    result = (temperature + 273.15) * 1.8;
+                } else if (temperature1.equals("Fahrenheit") && temperature2.equals("Celsius")) {
+                    result = (temperature - 32.0) * 0.55;
+                } else if (temperature1.equals("Fahrenheit") && temperature2.equals("Kelvin")) {
+                    result = (temperature + 459.67) * 0.55;
+                } else if (temperature1.equals("Fahrenheit") && temperature2.equals("Rankine")) {
+                    result = temperature + 459.67;
+                } else if (temperature1.equals("Kelvin") && temperature2.equals("Celsius")) {
+                    result = temperature - 273.15;
+                } else if (temperature1.equals("Kelvin") && temperature2.equals("Fahrenheit")) {
+                    result = (temperature * 1.8) - 459.67;
+                } else if (temperature1.equals("Kelvin") && temperature2.equals("Rankine")) {
+                    result = temperature * 1.8;
+                } else if (temperature1.equals("Rankine") && temperature2.equals("Celsius")) {
+                    result = (temperature - 491.67) * 0.55;
+                } else if (temperature1.equals("Rankine") && temperature2.equals("Fahrenheit")) {
+                    result = temperature - 491.67;
+                } else if (temperature1.equals("Rankine") && temperature2.equals("Kelvin")) {
+                    result = temperature * 0.55;
+                } else if (temperature1.equals(temperature2)) {
+                    result = 1;
+                }
+                //put a format with two decimal places to the result
+                DecimalFormat format = new DecimalFormat("#.##"); 
+                labelTemperatureResult.setText(""+format.format(result));
+            } catch (ArithmeticException e) {
+               JOptionPane.showMessageDialog(null,"Ingrese solo digitos","Error",JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null,"Ingrese una temperatura","Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_buttonConvertedTemperatureActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -733,10 +819,12 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
