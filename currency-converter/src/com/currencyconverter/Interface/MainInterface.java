@@ -38,6 +38,7 @@ public class MainInterface extends javax.swing.JFrame {
         setResizable(false);
         labelDolar.setIcon(new  ImageIcon("src/com/currencyconverter/img/icon-dolar2.png"));
         labelTemperature.setIcon(new ImageIcon("src/com/currencyconverter/img/icons8-temperatura-50.png"));
+        labelDistance.setIcon(new ImageIcon("src/com/currencyconverter/img/icons8-regla-50.png"));
         
         comboboxTemperture1.addItem("Celsius");
         comboboxTemperture1.addItem("Fahrenheit");
@@ -48,6 +49,18 @@ public class MainInterface extends javax.swing.JFrame {
         comboboxTemperature2.addItem("Fahrenheit");
         comboboxTemperature2.addItem("Kelvin");
         comboboxTemperature2.addItem("Rankine");
+        
+        comboboxDistance1.addItem("Centimetro");
+        comboboxDistance1.addItem("Metro");
+        comboboxDistance1.addItem("Kilometro");
+        comboboxDistance1.addItem("Milla");
+        comboboxDistance1.addItem("Pies");
+
+        comboboxDistance2.addItem("Centimetro");
+        comboboxDistance2.addItem("Metro");
+        comboboxDistance2.addItem("Kilometro");
+        comboboxDistance2.addItem("Milla");
+        comboboxDistance2.addItem("Pies");
         /**
          * se agrega un MouseListener para detectar el clic inicial en la ventana y 
          * un MouseMotionListener para realizar el arrastre de la ventana.
@@ -119,7 +132,7 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         buttonTemperature = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        buttonDistance = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         panelCenter = new javax.swing.JPanel();
         panel_currency = new javax.swing.JPanel();
@@ -143,6 +156,16 @@ public class MainInterface extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         buttonConvertedTemperature = new javax.swing.JButton();
+        panel_distance = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        labelDistance = new javax.swing.JLabel();
+        txtDistance = new javax.swing.JTextField();
+        comboboxDistance1 = new javax.swing.JComboBox<>();
+        comboboxDistance2 = new javax.swing.JComboBox<>();
+        labelDistanceResult = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        buttonConvertedDistance = new javax.swing.JButton();
         panelTop = new javax.swing.JPanel();
         buttonMinimize = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -223,22 +246,34 @@ public class MainInterface extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jPanel1.setBackground(new java.awt.Color(26, 47, 75));
+        buttonDistance.setBackground(new java.awt.Color(26, 47, 75));
+        buttonDistance.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonDistance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCurrencyMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buttonCurrencyTemperatureMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buttonCurrencyTemperatureMouseExited(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(47, 136, 134));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Conversor Distancia");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout buttonDistanceLayout = new javax.swing.GroupLayout(buttonDistance);
+        buttonDistance.setLayout(buttonDistanceLayout);
+        buttonDistanceLayout.setHorizontalGroup(
+            buttonDistanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        buttonDistanceLayout.setVerticalGroup(
+            buttonDistanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(buttonDistanceLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel4)
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -250,7 +285,7 @@ public class MainInterface extends javax.swing.JFrame {
             panelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(buttonCurrency, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(buttonTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buttonDistance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelLeftLayout.setVerticalGroup(
             panelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +295,7 @@ public class MainInterface extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(buttonTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonDistance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
@@ -513,6 +548,111 @@ public class MainInterface extends javax.swing.JFrame {
 
         panelCenter.add(panel_temperature, "card3");
 
+        panel_distance.setBackground(new java.awt.Color(40, 71, 92));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(47, 136, 134));
+        jLabel9.setText("Conversor De Distancia");
+
+        labelDistance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        txtDistance.setBackground(new java.awt.Color(40, 71, 92));
+        txtDistance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtDistance.setForeground(new java.awt.Color(132, 198, 155));
+        txtDistance.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtDistance.setBorder(null);
+        txtDistance.setCaretColor(new java.awt.Color(132, 198, 155));
+
+        comboboxDistance1.setBackground(new java.awt.Color(40, 71, 92));
+        comboboxDistance1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comboboxDistance1.setForeground(new java.awt.Color(47, 136, 134));
+        comboboxDistance1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
+
+        comboboxDistance2.setBackground(new java.awt.Color(40, 71, 92));
+        comboboxDistance2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        comboboxDistance2.setForeground(new java.awt.Color(47, 136, 134));
+        comboboxDistance2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
+
+        labelDistanceResult.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelDistanceResult.setForeground(new java.awt.Color(132, 198, 155));
+        labelDistanceResult.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        jSeparator6.setBackground(new java.awt.Color(47, 136, 134));
+        jSeparator6.setForeground(new java.awt.Color(47, 136, 134));
+
+        jSeparator7.setBackground(new java.awt.Color(47, 136, 134));
+        jSeparator7.setForeground(new java.awt.Color(47, 136, 134));
+
+        buttonConvertedDistance.setBackground(new java.awt.Color(40, 71, 92));
+        buttonConvertedDistance.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        buttonConvertedDistance.setForeground(new java.awt.Color(47, 136, 134));
+        buttonConvertedDistance.setText("Convertir");
+        buttonConvertedDistance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(47, 136, 134), 2));
+        buttonConvertedDistance.setFocusPainted(false);
+        buttonConvertedDistance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonConvertedDistanceActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panel_distanceLayout = new javax.swing.GroupLayout(panel_distance);
+        panel_distance.setLayout(panel_distanceLayout);
+        panel_distanceLayout.setHorizontalGroup(
+            panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_distanceLayout.createSequentialGroup()
+                .addContainerGap(166, Short.MAX_VALUE)
+                .addGroup(panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_distanceLayout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(buttonConvertedDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel_distanceLayout.createSequentialGroup()
+                        .addGroup(panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSeparator6)
+                                .addComponent(labelDistanceResult, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDistance, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSeparator7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboboxDistance1, 0, 130, Short.MAX_VALUE)
+                            .addComponent(comboboxDistance2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(panel_distanceLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(labelDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)))
+                .addGap(67, 67, 67))
+        );
+        panel_distanceLayout.setVerticalGroup(
+            panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_distanceLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_distanceLayout.createSequentialGroup()
+                        .addComponent(comboboxDistance1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
+                    .addGroup(panel_distanceLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(txtDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
+                .addGroup(panel_distanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(comboboxDistance2)
+                    .addComponent(labelDistanceResult, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonConvertedDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+
+        panelCenter.add(panel_distance, "card4");
+
         panelMain.add(panelCenter, java.awt.BorderLayout.CENTER);
 
         panelTop.setBackground(new java.awt.Color(26, 47, 75));
@@ -618,11 +758,19 @@ public class MainInterface extends javax.swing.JFrame {
        if(evt.getSource() == buttonCurrency){
            panel_currency.setVisible(true);
            panel_temperature.setVisible(false);
+           panel_distance.setVisible(false);
        } 
        if(evt.getSource() == buttonTemperature){
            panel_currency.setVisible(false);
            panel_temperature.setVisible(true);
+           panel_distance.setVisible(false);
        }
+       if(evt.getSource() == buttonDistance){
+           panel_currency.setVisible(false);
+           panel_temperature.setVisible(false);
+           panel_distance.setVisible(true);
+       }
+       
     }//GEN-LAST:event_buttonCurrencyMouseClicked
 
     private void buttonCurrencyTemperatureMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyTemperatureMouseEntered
@@ -632,7 +780,9 @@ public class MainInterface extends javax.swing.JFrame {
         if (evt.getSource() == buttonTemperature) {
             buttonTemperature.setBackground(new Color(40, 71, 92));
         }
-
+        if (evt.getSource() == buttonDistance) {
+            buttonDistance.setBackground(new Color(40, 71, 92));
+        }
     }//GEN-LAST:event_buttonCurrencyTemperatureMouseEntered
 
     private void buttonCurrencyTemperatureMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCurrencyTemperatureMouseExited
@@ -641,6 +791,9 @@ public class MainInterface extends javax.swing.JFrame {
         }
         if (evt.getSource() == buttonTemperature) {
             buttonTemperature.setBackground(new Color(26, 47, 75));
+        }
+        if (evt.getSource() == buttonDistance) {
+            buttonDistance.setBackground(new Color(26, 47, 75));
         }
     }//GEN-LAST:event_buttonCurrencyTemperatureMouseExited
 
@@ -761,7 +914,7 @@ public class MainInterface extends javax.swing.JFrame {
                 //put a format with two decimal places to the result
                 DecimalFormat format = new DecimalFormat("#.##"); 
                 labelTemperatureResult.setText(""+format.format(result));
-            } catch (ArithmeticException e) {
+            } catch (Exception e) {
                JOptionPane.showMessageDialog(null,"Ingrese solo digitos","Error",JOptionPane.ERROR_MESSAGE);
             }
             
@@ -769,6 +922,22 @@ public class MainInterface extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Ingrese una temperatura","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonConvertedTemperatureActionPerformed
+
+    private void buttonConvertedDistanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConvertedDistanceActionPerformed
+        if (!txtDistance.getText().equals("")) {
+            try {
+                double distance = Double.parseDouble(txtDistance.getText());
+                if (distance >= 0) {
+                    System.out.println(distance);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ingrese solo numero positivos", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } catch (Exception e) {
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese una distancia", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_buttonConvertedDistanceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -807,13 +976,17 @@ public class MainInterface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonClose;
+    private javax.swing.JButton buttonConvertedDistance;
     private javax.swing.JButton buttonConvertedTemperature;
     private javax.swing.JPanel buttonCurrency;
     private javax.swing.JButton buttonCurrencyGTQ;
+    private javax.swing.JPanel buttonDistance;
     private javax.swing.JButton buttonGTQCurrency;
     private javax.swing.JPanel buttonMinimize;
     private javax.swing.JPanel buttonTemperature;
     private javax.swing.JComboBox<String> comboCountries;
+    private javax.swing.JComboBox<String> comboboxDistance1;
+    private javax.swing.JComboBox<String> comboboxDistance2;
     private javax.swing.JComboBox<String> comboboxTemperature2;
     private javax.swing.JComboBox<String> comboboxTemperture1;
     private javax.swing.JLabel jLabel1;
@@ -824,12 +997,16 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JLabel labelDistance;
+    private javax.swing.JLabel labelDistanceResult;
     private javax.swing.JLabel labelDolar;
     private javax.swing.JLabel labelTemperature;
     private javax.swing.JLabel labelTemperatureResult;
@@ -838,7 +1015,9 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JPanel panelMain;
     private javax.swing.JPanel panelTop;
     private javax.swing.JPanel panel_currency;
+    private javax.swing.JPanel panel_distance;
     private javax.swing.JPanel panel_temperature;
+    private javax.swing.JTextField txtDistance;
     private javax.swing.JTextField txtLocalCurrency;
     private javax.swing.JTextField txtTemperature;
     private javax.swing.JTextField txtUnknownCurrency;
