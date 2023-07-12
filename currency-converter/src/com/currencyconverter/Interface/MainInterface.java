@@ -909,7 +909,7 @@ public class MainInterface extends javax.swing.JFrame {
                 } else if (temperature1.equals("Rankine") && temperature2.equals("Kelvin")) {
                     result = temperature * 0.55;
                 } else if (temperature1.equals(temperature2)) {
-                    result = 1;
+                    result = temperature;
                 }
                 //put a format with two decimal places to the result
                 DecimalFormat format = new DecimalFormat("#.##"); 
@@ -926,9 +926,36 @@ public class MainInterface extends javax.swing.JFrame {
     private void buttonConvertedDistanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonConvertedDistanceActionPerformed
         if (!txtDistance.getText().equals("")) {
             try {
-                double distance = Double.parseDouble(txtDistance.getText());
+                double distance = Double.parseDouble(txtDistance.getText()),result=0;
                 if (distance >= 0) {
-                    System.out.println(distance);
+                    String sourceUnit = (String) comboboxDistance1.getSelectedItem();
+                    String destinationUnit = (String) comboboxDistance2.getSelectedItem();
+                    if(sourceUnit.equals("Centimetro")&&destinationUnit.equals("Metro")){
+                        result = distance / 100;
+                    }else if(sourceUnit.equals("Centimetro")&&destinationUnit.equals("Kilometro")){
+                        result = distance / 100000;
+                    }else if(sourceUnit.equals("Centimetro")&&destinationUnit.equals("Milla")){
+                        result = distance/ 160934.4;
+                    }else if(sourceUnit.equals("Centimetro")&&destinationUnit.equals("Pies")){
+                        result = distance / 30.48;
+                    }else if(sourceUnit.equals("Metro")&&destinationUnit.equals("Centimetro")){
+                        result = distance * 100.00;
+                    }else if(sourceUnit.equals("Metro")&&destinationUnit.equals("Kilometro")){
+                        result = distance / 1000;
+                    }else if(sourceUnit.equals("Metro")&&destinationUnit.equals("Milla")){
+                        result = distance / 1609.344;
+                    }else if(sourceUnit.equals("Metro")&&destinationUnit.equals("Pies")){
+                        result = distance * 3.28084;
+                    }else if(sourceUnit.equals("Kilometro")&&destinationUnit.equals("Centimetro")){
+                        result = distance * 100000;
+                    }else if(sourceUnit.equals("Kilometro")&&destinationUnit.equals("Metro")){
+                        result = distance * 1000;
+                    }else if(sourceUnit.equals("Kilometro")&&destinationUnit.equals("Milla")){
+                        result = distance / 1.609344;
+                    }else if(sourceUnit.equals("Kilometro")&&destinationUnit.equals("Pies")){
+                        result = distance * 3280.84;
+                    }
+                    labelDistanceResult.setText(""+result);
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese solo numero positivos", "Error", JOptionPane.ERROR_MESSAGE);
                 }
