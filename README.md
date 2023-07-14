@@ -47,9 +47,8 @@ El conversor de distancia proporciona la capacidad de convertir entre distintas 
 3. Especifica la unidad de origen y la unidad de destino.
 4. Haz clic en el botón "Convertir" para obtener el resultado de la conversión.
 
-## Video explicativo 
-
-[![Alt text](https://github.com/danieltistoj/currency-converter/assets/42653664/780a1d08-48e0-4c37-9b88-25e7d677d8a2)](https://youtu.be/hy5YeItRLNc)
+## Video explicativo
+[![Alt text](https://img.youtube.com/vi/hy5YeItRLNc/0.jpg)](https://www.youtube.com/watch?v=hy5YeItRLNc)
 
 
 
