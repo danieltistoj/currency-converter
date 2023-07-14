@@ -49,4 +49,7 @@ El conversor de distancia proporciona la capacidad de convertir entre distintas 
 
 ## Video explicativo 
 
-[![](https://markdown-videos.deta.dev/youtube/hy5YeItRLNc)](https://youtu.be/hy5YeItRLNc)
+[![Alt text](https://github.com/danieltistoj/currency-converter/assets/42653664/780a1d08-48e0-4c37-9b88-25e7d677d8a2)](https://youtu.be/hy5YeItRLNc)
+
+
+
