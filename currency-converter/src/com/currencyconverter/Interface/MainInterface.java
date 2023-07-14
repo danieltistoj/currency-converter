@@ -856,11 +856,12 @@ public class MainInterface extends javax.swing.JFrame {
                             change = currency.getValue();
                         }
                     }
+                    DecimalFormat format = new DecimalFormat("#.##");
                     if (option) {
-                        txtUnknownCurrency.setText("" + (change * currencyGTQ));
+                        txtUnknownCurrency.setText("" + format.format(change * currencyGTQ));
 
                     } else {
-                        txtLocalCurrency.setText("" + (currencyGTQ / change));
+                        txtLocalCurrency.setText("" + format.format(currencyGTQ / change));
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese solo valores positivos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -978,7 +979,8 @@ public class MainInterface extends javax.swing.JFrame {
                     }else if(sourceUnit.equals(destinationUnit)){
                         result = distance;               
                     }
-                    labelDistanceResult.setText(""+result);
+                     DecimalFormat format = new DecimalFormat("#.####"); 
+                    labelDistanceResult.setText(""+format.format(result));
                 } else {
                     JOptionPane.showMessageDialog(null, "Ingrese solo numero positivos", "Error", JOptionPane.ERROR_MESSAGE);
                 }

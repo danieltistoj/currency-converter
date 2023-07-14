@@ -7,7 +7,7 @@ package com.currencyconverter.main;
 import com.currencyconverter.Class.ApiClient;
 import com.currencyconverter.Class.Currency;
 import java.util.ArrayList;
-
+import com.currencyconverter.Interface.MainInterface;
 /**
  *
  * @author Usuario
@@ -18,6 +18,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        new MainInterface();
+        /*
         ApiClient apiClient = new ApiClient();
         ArrayList<Currency> lista =  apiClient.callApi("GTQ");
         System.out.println(" ");
@@ -25,10 +27,12 @@ public class Main {
         lista.sort((Currency c1,Currency c2)-> 
                 c1.getKey().compareTo(c2.getKey())
         );
-*/
+
         lista.forEach((currency)->
                 System.out.println(currency.getCountry()));
-    }
+ */   
+                
+}
    
     
 }
